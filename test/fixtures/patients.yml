@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  date_of_birth: 2012-10-25
+  patient_type: MyString
+  primary_doctor: 1
+
+two:
+  first_name: MyString
+  last_name: MyString
+  date_of_birth: 2012-10-25
+  patient_type: MyString
+  primary_doctor: 1
