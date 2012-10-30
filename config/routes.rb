@@ -1,4 +1,6 @@
 Sandbox1::Application.routes.draw do
+  resources :doctors
+
   resources :patients
 
   get "patients/new"
