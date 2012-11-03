@@ -21,15 +21,24 @@
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth %>
+    <%= f.date_select :date_of_birth, {:use_short_month=>true,
+                                       :start_year=>1900,
+				       :end_year=>Time.now.year,
+				       :default=>{:year=>Time.now.year - 40,
+				                  :month=> 'Jun',
+						  :day=>15}
+				      }, 
+				      {} %>
   </div>
   <div class="field">
     <%= f.label :patient_type %><br />
-    <%= f.text_field :patient_type %>
+    <%= f.select :patient_type, options_for_select({'Out Patient'=> :outpatient,
+                                                   'In patient'=> :inpatient},:outpatient)
+			   %>
   </div>
   <div class="field">
-    <%= f.label :primary_doctor %><br />
-    <%= f.number_field :primary_doctor %>
+    <%= f.label 'Doctor Name' %><br />
+    <%= f.collection_select :doctor_id, Doctor.all, :id, :full_name, :prompt => true %>
   </div>
   <div class="actions">
     <%= f.submit %>

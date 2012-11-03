@@ -40,7 +40,10 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
-    @patient = Patient.new(params[:patient])
+    #SCAFFOLD: @patient = Patient.new(params[:patient])
+    # Associate the patient with the doctor chosen
+    @doctor = Doctor.find(params[:patient][:doctor_id])
+    @patient = @doctor.patients.create(params[:patient])
 
     respond_to do |format|
       if @patient.save

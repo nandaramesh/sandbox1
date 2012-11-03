@@ -18,7 +18,7 @@
     <td><%= patient.last_name %></td>
     <td><%= patient.date_of_birth %></td>
     <td><%= patient.patient_type %></td>
-    <td><%= patient.primary_doctor %></td>
+    <td><%= Doctor.find(patient.doctor_id).full_name %></td>
     <td><%= link_to 'Show', patient %></td>
     <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
     <td><%= link_to 'Destroy', patient, confirm: 'Are you sure?', method: :delete %></td>
