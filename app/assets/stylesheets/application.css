@@ -11,3 +11,26 @@
  *= require_self
  *= require_tree .
 */
+
+h1 {
+   font-size: large;
+}
+
+
+table,td,th {
+  border: 1px solid white;
+}
+
+td,th {
+  padding: 10px;
+}
+
+th {
+  color: black;
+  background: coral;
+}
+  
+td {
+ color: black;
+ background: Khaki;
+}
