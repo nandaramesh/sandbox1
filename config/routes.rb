@@ -1,4 +1,5 @@
 Sandbox1::Application.routes.draw do
+
   get "static_pages/hospital"
 
   get "static_pages/help"
@@ -15,6 +16,9 @@ Sandbox1::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
+
+  match '/help',     to: 'static_pages#help'
+  match '/hospital', to: 'static_pages#hospital'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
@@ -59,6 +63,8 @@ Sandbox1::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
+
+  root to: 'static_pages#hospital'
 
   # See how all your routes lay out with "rake routes"
 
