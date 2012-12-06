@@ -12,13 +12,19 @@
  *= require_tree .
 */
 
+body {
+  bgcolor: lightblue;
+}
+
 h1 {
    font-size: large;
+   color: maroon;
 }
 
 
 table,td,th {
   border: 1px solid white;
+  border-top-left-radius: 25px 25px;
 }
 
 td,th {
