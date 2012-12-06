@@ -1,4 +1,8 @@
 Sandbox1::Application.routes.draw do
+  get "static_pages/hospital"
+
+  get "static_pages/help"
+
   resources :doctors
 
   resources :patients
