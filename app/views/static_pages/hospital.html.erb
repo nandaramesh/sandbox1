@@ -1,7 +1,8 @@
 <h1>Hospital Cure All</h1>
-<h3>Click on an option below:</h3>
+<h3>Departments</h3>
 <ul>
- <li> <a href="http://localhost:3000/patients">Patients</li>
- <li> <a href="http://localhost:3000/doctors">Doctors</li>
+  <% @depts.each do |dept| %>
+   <li> <%= dept %> </li>
+  <% end %>
 </ul>
 <a href="http://localhost:3000/rails_help.html">Rails Help</li>

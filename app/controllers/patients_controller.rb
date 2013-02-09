@@ -25,6 +25,7 @@ class PatientsController < ApplicationController
   # GET /patients/new.json
   def new
     @patient = Patient.new
+    @minsize_last_name = 5;
 
     respond_to do |format|
       format.html # new.html.erb
