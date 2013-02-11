@@ -7,7 +7,7 @@ gem 'rails', '3.2.1'
 
 # change production to postgress for heroku
 group :development, :test do
-  gem 'sqlite3'
+  gem 'pg'
 end
 group :production do
   gem 'pg'
