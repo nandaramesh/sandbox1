@@ -4,6 +4,8 @@ Sandbox1::Application.routes.draw do
 
   get "static_pages/help"
 
+  get  "doctors/search"
+  post "doctors/department"
   resources :doctors
 
   resources :patients

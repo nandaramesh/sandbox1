@@ -1,8 +1,24 @@
 <h1>Hospital Cure All</h1>
-<h3>Departments</h3>
-<ul>
+
+<br>
+
+<h2>Select Department</h2>
+<%= form_tag ({:controller => "doctors",:action=>"department"}) do %>
   <% @depts.each do |dept| %>
-   <li> <%= dept %> </li>
+    <%= radio_button_tag 'dept', dept, @selected_dept == dept,:onclick => "this.parentNode.submit()"  %>
+    <%= label_tag "dept_#{dept}", dept.humanize %>
+    <br>
   <% end %>
-</ul>
+<% end %>
+<br>
+<!-- search box for doctor/hospital etc.. in doctor model -->
+<h2>Search </h2>
+<%= form_tag({:controller=>"doctors",:action=>"search"}, :method => "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br>
+
 <a href="http://localhost:3000/rails_help.html">Rails Help</li>

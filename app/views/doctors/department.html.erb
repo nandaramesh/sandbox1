@@ -1,0 +1,23 @@
+<h1>Doctors in department: <em><%= @selected_department %></em> </h1>
+<%= params %>
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Hospital</th>
+    <th>Description</th>
+  </tr>
+
+<% @doctors.each do |doctor| %>
+  <tr>
+    <td><%= doctor.first_name %></td>
+    <td><%= doctor.last_name %></td>
+    <td><%= doctor.hospital %></td>
+    <td><%= doctor.description %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'Back', hospital_path %>
+

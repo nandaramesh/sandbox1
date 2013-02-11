@@ -1,4 +1,15 @@
 class DoctorsController < ApplicationController
+  # POST /doctors/department
+  def department
+    @selected_department = params[:dept]
+    @doctors = Doctor.where("department=?",params[:dept])
+  end
+
+  # GET /doctors/search
+  def search
+    @doctors = Doctor.where("last_name like :str or first_name like :str",:str => '%'+params[:q]+'%')
+  end
+
   # GET /doctors
   # GET /doctors.json
   def index
