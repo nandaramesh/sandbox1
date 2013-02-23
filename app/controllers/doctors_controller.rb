@@ -1,7 +1,7 @@
 class DoctorsController < ApplicationController
   # POST /doctors/department
   def department
-    @selected_department = params[:dept]
+    flash[:selected_dept] = params[:dept]
     @doctors = Doctor.where("department=?",params[:dept])
   end
 
@@ -55,8 +55,8 @@ class DoctorsController < ApplicationController
 
     respond_to do |format|
       if @doctor.save
-        format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }
-        format.json { render json: @doctor, status: :created, location: @doctor }
+       format.html { redirect_to @doctor, notice: 'Doctor was successfully created.' }
+       format.json { render json: @doctor, status: :created, location: @doctor }
       else
         format.html { render action: "new" }
         format.json { render json: @doctor.errors, status: :unprocessable_entity }
