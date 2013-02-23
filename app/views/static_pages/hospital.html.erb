@@ -5,11 +5,12 @@
 <h2>Select Department</h2>
 <%= form_tag ({:controller => "doctors",:action=>"department"}) do %>
   <% @depts.each do |dept| %>
-    <%= radio_button_tag 'dept', dept, @selected_dept == dept,:onclick => "this.parentNode.submit()"  %>
+    <%= radio_button_tag 'dept', dept, flash[:selected_dept]==dept,:onclick => "this.parentNode.submit()"  %>
     <%= label_tag "dept_#{dept}", dept.humanize %>
     <br>
   <% end %>
 <% end %>
+<%= render :partial=>'doctors/listnames',:locals=>{:dept=>flash[:selected_dept]} %>
 <br>
 <!-- search box for doctor/hospital etc.. in doctor model -->
 <h2>Search </h2>

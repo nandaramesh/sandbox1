@@ -1,0 +1,11 @@
+<!-- List just the doctor names -->
+<h3>Doctors</h3>
+<nl>
+<% doctors = Doctor.where("department = ?",dept) %>
+<% doctors.each do |doctor| %>
+    <li><%= doctor.full_name %></li>
+<% end %>
+</nl>
+
+<br />
+
