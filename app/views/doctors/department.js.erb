@@ -1,0 +1,9 @@
+try{
+  $("<%= escape_javascript(render :partial => '/doctors/listnames',
+           :locals => {:docs=>flash[:doctors]}) %>").replaceAll('#doctors');
+}
+catch(e){
+ alert('An error has occurred: '+e.message)
+}
+	     
+// alert("done?");

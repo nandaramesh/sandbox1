@@ -28,7 +28,6 @@ h2 {
 
 table,td,th {
   border: 1px solid white;
-  border-top-left-radius: 25px 25px;
 }
 
 td,th {
@@ -43,4 +42,22 @@ th {
 td {
  color: black;
  background: Khaki;
+}
+
+#doctors {
+ color: red;
+}
+#doctors {
+ border-top: 1px dotted #595;
+ border-bottom: 1px dotted #595;
+ margin-bottom: 10px;
+ margin-left: 10px;
+}
+
+#footer { 
+  color:white;
+  background: black;
+  text-align:left; 
+  position:absolute; 
+  bottom:0; 
 }

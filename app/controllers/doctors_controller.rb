@@ -1,13 +1,29 @@
 class DoctorsController < ApplicationController
-  # POST /doctors/department
+  # GET /doctors/department
   def department
     flash[:selected_dept] = params[:dept]
     @doctors = Doctor.where("department=?",params[:dept])
+    flash[:doctors]=@doctors
+    puts "...format="+request.format
+
+    respond_to do |format|
+      format.html {redirect_to(hospital_url)}
+      format.js 
+    end
   end
 
   # GET /doctors/search
   def search
     @doctors = Doctor.where("last_name like :str or first_name like :str",:str => '%'+params[:q]+'%')
+    flash[:doctors]=@doctors
+    puts "...format="+request.format
+
+    respond_to do |format|
+      format.html {redirect_to(hospital_url)}
+      #format.js {render :js => "alert('I am in search js format')"}
+      format.js 
+    end
+
   end
 
   # GET /doctors

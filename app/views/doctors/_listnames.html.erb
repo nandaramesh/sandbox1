@@ -1,11 +1,11 @@
 <!-- List just the doctor names -->
+<div id="doctors"> 
 <h3>Doctors</h3>
-<nl>
-<% doctors = Doctor.where("department = ?",dept) %>
-<% doctors.each do |doctor| %>
+<% if docs %>
+  <% docs.each do |doctor| %>
     <li><%= doctor.full_name %></li>
+    <% flash[:seldoc]=doctor %>
+  <% end %>
 <% end %>
-</nl>
-
-<br />
+</div>
 

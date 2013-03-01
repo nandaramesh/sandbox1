@@ -2,24 +2,54 @@
 
 <br>
 
-<h2>Select Department</h2>
-<%= form_tag ({:controller => "doctors",:action=>"department"}) do %>
-  <% @depts.each do |dept| %>
-    <%= radio_button_tag 'dept', dept, flash[:selected_dept]==dept,:onclick => "this.parentNode.submit()"  %>
+<table align="left">
+ <tr>
+  <td>
+
+   <h2>Select Department</h2>
+   <%= form_tag('/doctors/department', :method=>:get, :remote=>true) do %>
+   <% @depts.each do |dept| %>
+    <%= radio_button_tag 'dept', dept, flash[:selected_dept]==dept %>
+                          <!--      :onclick => "this.parentNode.submit()"  -->
     <%= label_tag "dept_#{dept}", dept.humanize %>
     <br>
-  <% end %>
-<% end %>
-<%= render :partial=>'doctors/listnames',:locals=>{:dept=>flash[:selected_dept]} %>
-<br>
-<!-- search box for doctor/hospital etc.. in doctor model -->
-<h2>Search </h2>
-<%= form_tag({:controller=>"doctors",:action=>"search"}, :method => "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
+    <% end %>
+    <%= submit_tag("Update") %>
+   <% end %>
+
+   <br>
+   <!-- search box for doctor/hospital etc.. in doctor model -->
+   <h2>Search </h2>
+    <%= form_tag('doctors/search', :method=>:get, :remote=>true) do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+   <% end %>
+
+  </td>
+
+  <td>
+
+   <div id="doctors">
+    <%= render :partial=>'doctors/listnames',
+               :locals=>{:docs=>flash[:doctors]} %>
+   </div>
+
+  </td>
+
+  <td>
+   <div id="doc_description">
+    <%= render :partial=>'doctors/description',
+               :locals=>{:seldoc=>flash[:seldoc]} %>
+   </div>
+  </td>
+
+ </tr>
+</table>
+
 
 <br>
 
+<div id="footer">
 <a href="http://localhost:3000/rails_help.html">Rails Help</li>
+</div>
